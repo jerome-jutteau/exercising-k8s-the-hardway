@@ -1,0 +1,8 @@
+---
+- name: Setup CSI secrets
+  hosts: control-plane-0
+  tasks:
+    - name: Create CSI secrets
+      command:
+        cmd: "kubectl apply -f -"
+        stdin: "{{ lookup('file', 'secrets.yaml') }}"

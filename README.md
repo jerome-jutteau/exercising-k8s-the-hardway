@@ -9,7 +9,6 @@ Its purpose is mainly to play with Kubernetes, Terraform and Ansible on [Outscal
 Note that this project only follow the tutorial and has a number limitation like:
 - Services IPs are only available on worker nodes
 - No Ingress Controller installed
-- Storage management is not availabled (no CSI)
 
 # Architecture
 
@@ -22,6 +21,7 @@ Additional services deployed:
 - A [NAT Service](https://wiki.outscale.net/display/EN/About+NAT+Gateways) is created to provide internet access to workers.
 - Each control-plane has a public IP and are used as a bastion host to access worker nodes.
 - Cloud controller manager (CCM) can be enabled in to run Service of type Load Balancer
+- Container Storage Interface (CSI) can be enabled to use [IaaS Volumes](https://wiki.outscale.net/display/EN/About+Volumes).
 
 # Prerequisite
 

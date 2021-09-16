@@ -45,6 +45,7 @@ ExecStart=/usr/local/bin/kubelet \
   --network-plugin=cni \
   --register-node=true \
   ${var.with_cloud_provider ? "--cloud-provider=external" : ""} \
+  ${var.with_csi ? "--feature-gates=CSIVolumeFSGroupPolicy=true" : ""} \
   --hostname-override=${local.node_names[count.index]} \
   --v=2
 Restart=on-failure

@@ -83,6 +83,7 @@ ExecStart=/usr/local/bin/kube-apiserver \
   --tls-cert-file=/var/lib/kubernetes/kubernetes.pem \
   --tls-private-key-file=/var/lib/kubernetes/kubernetes-key.pem \
   ${var.with_cloud_provider ? "--cloud-provider=external" : ""} \
+  ${var.with_csi ? "--feature-gates=CSIVolumeFSGroupPolicy=true" : ""} \
   --v=2
 Restart=on-failure
 RestartSec=5

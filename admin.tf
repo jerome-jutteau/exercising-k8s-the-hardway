@@ -26,6 +26,22 @@ resource "shell_script" "cfssljson" {
   }
 }
 
+resource "shell_script" "helm-local" {
+  lifecycle_commands {
+    create = <<-EOF
+        mkdir -p bin
+        cd bin
+        curl "https://get.helm.sh/helm-v3.7.0-${var.terraform_os}-${var.terraform_arch}.tar.gz" | tar zxvf -
+        mv ${var.terraform_os}-${var.terraform_arch}/helm ./helm-local
+        rm -rf ${var.terraform_os}-${var.terraform_arch}
+    EOF
+    read   = <<-EOF
+        echo "{\"md5\": \"$(md5sum bin/helm-local)\"}"
+    EOF
+    delete = "rm -f bin/helm-local"
+  }
+}
+
 resource "shell_script" "kubectl-local" {
   lifecycle_commands {
     create = <<-EOF
