@@ -1,0 +1,8 @@
+---
+- name: Destroy storage example
+  hosts: control-plane-0
+  tasks:
+    - name: Destroy storage example
+      command:
+        cmd: "kubectl delete -f -"
+        stdin: "{{ lookup('file', 'storage.yaml') }}"

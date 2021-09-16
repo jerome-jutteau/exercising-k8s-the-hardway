@@ -13,3 +13,4 @@ variable "terraform_arch" {}
 variable "with_cloud_provider" {}
 variable "with_example_2048" {}
 variable "with_csi" {}
+variable "with_example_storage" {}

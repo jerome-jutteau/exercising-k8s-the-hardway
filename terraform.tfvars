@@ -14,3 +14,4 @@ terraform_arch        = "amd64"
 with_cloud_provider   = false
 with_example_2048     = false # Deploy a Service of type Load Balancer as an example (need with_cloud_provider = true)
 with_csi              = false
+with_example_storage  = false # Deploy a pod with BSU cloud-based storage (need with_csi enabled)

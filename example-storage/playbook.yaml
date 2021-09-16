@@ -1,0 +1,8 @@
+---
+- name: Setup storage example
+  hosts: control-plane-0
+  tasks:
+    - name: Deploy storage example
+      command:
+        cmd: "kubectl apply -f -"
+        stdin: "{{ lookup('file', 'storage.yaml') }}"
